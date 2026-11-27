@@ -112,11 +112,11 @@ fbq('track', 'PageView');`,
         />
 
         {/* eslint-disable-next-line @next/next/next-script-for-ga -- verification needs Google's exact snippet in the server HTML <head> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQK6K3S1Y7" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVGPKP8PNM" />
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-NQK6K3S1Y7');\n",
+              "\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-NVGPKP8PNM');\n",
           }}
         />
       </head>
