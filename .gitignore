@@ -22,10 +22,11 @@ test-results/
 Thumbs.db
 
 # local order database (development)
-data/
+/data/
 
 # SEO audit data is kept (the data/ rule above is for order data), except the raw Lighthouse
 # reports and review diff (large; summary in seo-reports/data/lighthouse-summary.json).
 !seo-reports/data/
 seo-reports/data/lighthouse/
 seo-reports/data/*.diff
+!src/services/adapters/mock/data/

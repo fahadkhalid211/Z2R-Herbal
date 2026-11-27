@@ -1,0 +1,186 @@
+{
+  "/images/products/coconut/card.webp": {
+    "width": 858,
+    "height": 1272
+  },
+  "/images/products/coconut/box.webp": {
+    "width": 640,
+    "height": 1730
+  },
+  "/images/products/coconut/bottle.webp": {
+    "width": 531,
+    "height": 1784
+  },
+  "/images/products/almond/card.webp": {
+    "width": 882,
+    "height": 1285
+  },
+  "/images/products/almond/box.webp": {
+    "width": 640,
+    "height": 1687
+  },
+  "/images/products/almond/bottle.webp": {
+    "width": 539,
+    "height": 1723
+  },
+  "/images/products/pumpkin-seed/card.webp": {
+    "width": 871,
+    "height": 1176
+  },
+  "/images/products/pumpkin-seed/box.webp": {
+    "width": 640,
+    "height": 1762
+  },
+  "/images/products/pumpkin-seed/bottle.webp": {
+    "width": 540,
+    "height": 1792
+  },
+  "/images/products/signature/card.webp": {
+    "width": 778,
+    "height": 1162
+  },
+  "/images/products/signature/box.webp": {
+    "width": 489,
+    "height": 1560
+  },
+  "/images/products/signature/bottle.webp": {
+    "width": 546,
+    "height": 1767
+  },
+  "/images/products/olive/card.webp": {
+    "width": 822,
+    "height": 1215
+  },
+  "/images/products/olive/box.webp": {
+    "width": 640,
+    "height": 1755
+  },
+  "/images/products/olive/bottle.webp": {
+    "width": 537,
+    "height": 1785
+  },
+  "/images/products/mustard/card.webp": {
+    "width": 802,
+    "height": 1242
+  },
+  "/images/products/mustard/box.webp": {
+    "width": 640,
+    "height": 1680
+  },
+  "/images/products/mustard/bottle.webp": {
+    "width": 546,
+    "height": 1781
+  },
+  "/images/products/sesame/card.webp": {
+    "width": 871,
+    "height": 1185
+  },
+  "/images/products/sesame/box.webp": {
+    "width": 560,
+    "height": 1446
+  },
+  "/images/products/sesame/bottle.webp": {
+    "width": 511,
+    "height": 1762
+  },
+  "/images/story/banner.webp": {
+    "width": 2172,
+    "height": 724
+  },
+  "/images/journal/choose-right-oil.webp": {
+    "width": 896,
+    "height": 1200
+  },
+  "/images/journal/coconut-oil-benefits.webp": {
+    "width": 896,
+    "height": 1200
+  },
+  "/images/journal/almond-oil-boost.webp": {
+    "width": 896,
+    "height": 1200
+  },
+  "/images/editorial/long-hair.webp": {
+    "width": 896,
+    "height": 1200
+  },
+  "/images/ingredients/coconut.webp": {
+    "width": 480,
+    "height": 480
+  },
+  "/images/ingredients/almond.webp": {
+    "width": 480,
+    "height": 480
+  },
+  "/images/ingredients/pumpkin-seed.webp": {
+    "width": 330,
+    "height": 330
+  },
+  "/images/ingredients/olive.webp": {
+    "width": 300,
+    "height": 300
+  },
+  "/images/ingredients/mustard.webp": {
+    "width": 320,
+    "height": 320
+  },
+  "/images/ingredients/sesame.webp": {
+    "width": 320,
+    "height": 320
+  },
+  "/images/products/coconut/hero-bottle.webp": {
+    "width": 327,
+    "height": 1100
+  },
+  "/images/products/coconut/hero-box.webp": {
+    "width": 437,
+    "height": 1180
+  },
+  "/images/products/almond/hero-bottle.webp": {
+    "width": 344,
+    "height": 1100
+  },
+  "/images/products/almond/hero-box.webp": {
+    "width": 448,
+    "height": 1180
+  },
+  "/images/products/pumpkin-seed/hero-bottle.webp": {
+    "width": 331,
+    "height": 1100
+  },
+  "/images/products/pumpkin-seed/hero-box.webp": {
+    "width": 429,
+    "height": 1180
+  },
+  "/images/products/signature/hero-bottle.webp": {
+    "width": 340,
+    "height": 1100
+  },
+  "/images/products/signature/hero-box.webp": {
+    "width": 370,
+    "height": 1180
+  },
+  "/images/products/olive/hero-bottle.webp": {
+    "width": 331,
+    "height": 1100
+  },
+  "/images/products/olive/hero-box.webp": {
+    "width": 430,
+    "height": 1180
+  },
+  "/images/products/mustard/hero-bottle.webp": {
+    "width": 337,
+    "height": 1100
+  },
+  "/images/products/mustard/hero-box.webp": {
+    "width": 450,
+    "height": 1180
+  },
+  "/images/products/sesame/hero-bottle.webp": {
+    "width": 319,
+    "height": 1100
+  },
+  "/images/products/sesame/hero-box.webp": {
+    "width": 457,
+    "height": 1180
+  }
+}

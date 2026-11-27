@@ -1,0 +1,30 @@
+{
+  "coconut": {
+    "accent": "#75d3e5",
+    "oil": "#999f99"
+  },
+  "almond": {
+    "accent": "#e2c9bc",
+    "oil": "#af8d31"
+  },
+  "pumpkin-seed": {
+    "accent": "#74947b",
+    "oil": "#637149"
+  },
+  "signature": {
+    "accent": "#dae4d7",
+    "oil": "#8f893b"
+  },
+  "olive": {
+    "accent": "#9ba737",
+    "oil": "#7b6b2e"
+  },
+  "mustard": {
+    "accent": "#f6ab02",
+    "oil": "#85680f"
+  },
+  "sesame": {
+    "accent": "#dca7a4",
+    "oil": "#836c34"
+  }
+}
