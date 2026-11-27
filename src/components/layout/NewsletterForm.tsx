@@ -1,14 +1,19 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { subscribeToNewsletter, type NewsletterState } from "@/app/actions";
 import clsx from "clsx";
+import { trackLead } from "@/lib/analytics";
 
 const initial: NewsletterState = { status: "idle" };
 
 export function NewsletterForm() {
   const [state, action, pending] = useActionState(subscribeToNewsletter, initial);
+
+  useEffect(() => {
+    if (state.status === "success") trackLead("newsletter");
+  }, [state]);
 
   return (
     <form action={action} className="mt-4" noValidate>

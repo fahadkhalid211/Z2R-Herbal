@@ -19,6 +19,7 @@ import {
   migrateCartLines,
   parseStoredCart,
 } from "@/lib/cart";
+import { trackAddToCart } from "@/lib/analytics";
 import { logger } from "@/lib/logger";
 
 export interface CartItem {
@@ -26,6 +27,8 @@ export interface CartItem {
   variantId: string;
   name: string;
   image: { src: string; width: number; height: number };
+  price?: number;
+  variantLabel?: string;
 }
 
 interface CartContextValue {
@@ -83,6 +86,13 @@ export function CartProvider({
 
   const add = useCallback((item: CartItem, quantity = 1) => {
     dispatch({ type: "add", variantId: item.variantId, quantity });
+    trackAddToCart({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      variant: item.variantLabel,
+      quantity,
+    });
     setLastAdded(item);
     setAddedTick((t) => t + 1);
   }, []);

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from "react";
 import { Heart } from "lucide-react";
 import clsx from "clsx";
+import { trackAddToWishlist } from "@/lib/analytics";
 import { logger } from "@/lib/logger";
 
 const STORAGE_KEY = "z2r.wishlist.v1";
@@ -99,7 +100,10 @@ export function WishlistButton({ id, name, className }: { id: string; name: stri
       type="button"
       aria-pressed={saved}
       aria-label={`Save ${name} to wishlist`}
-      onClick={() => toggle(id)}
+      onClick={() => {
+        if (!saved) trackAddToWishlist({ id, name });
+        toggle(id);
+      }}
       className={clsx(
         "wish-btn grid size-10 place-items-center rounded-full bg-white/90 shadow-[0_4px_12px_-4px_rgb(1_35_19/0.35)] transition-[color,background-color,box-shadow] duration-(--dur-fast) hover:bg-white hover:shadow-[0_8px_18px_-6px_rgb(1_35_19/0.45)]",
         saved ? "text-brand-red" : "text-forest-800 hover:text-brand-red",

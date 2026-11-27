@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { buttonClasses } from "@/components/ui/Button";
 import { Notice } from "@/components/ui/Notice";
 import { TextField } from "@/components/ui/TextField";
+import { trackSignUp } from "@/lib/analytics";
 import { describeApiError, errorFields } from "@/lib/customer-api";
 import { PASSWORD_MIN, fieldErrors, registerSchema } from "@/lib/validation";
 import { useAuth } from "./AuthProvider";
@@ -69,6 +70,7 @@ export function RegisterForm() {
     try {
       const { name, email, phone, password } = parsed.data;
       await register({ name, email, phone, password });
+      trackSignUp();
       setValues(EMPTY);
       router.replace(next);
     } catch (error) {

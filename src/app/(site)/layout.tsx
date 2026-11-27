@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { connection } from "next/server";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { CartProvider } from "@/components/cart/CartProvider";
+import { RouteTracker } from "@/components/analytics/RouteTracker";
 import { CartToast } from "@/components/cart/CartWidgets";
 import { WishlistProvider } from "@/components/cart/Wishlist";
 import { Footer } from "@/components/layout/Footer";
@@ -59,6 +60,7 @@ export default async function SiteLayout({ children }: Readonly<{ children: Reac
           />
           <WhatsAppButton whatsapp={site.contact.whatsapp} />
           <CartToast />
+          <RouteTracker />
           <Suspense fallback={null}>
             <RouteLoader />
           </Suspense>

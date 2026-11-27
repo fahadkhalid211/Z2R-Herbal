@@ -37,6 +37,8 @@ export const toCartItem = (p: Product, variant: Variant = defaultVariant(p)) => 
   variantId: variant.id,
   name: p.name,
   image: p.images.bottle,
+  price: variant.price,
+  variantLabel: variant.label,
 });
 
 export function cardPrice(p: Product): { amount: number; from: boolean; sizeLabel: string } {

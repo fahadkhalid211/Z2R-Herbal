@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowRight, BadgeCheck, ChevronDown, Leaf, Sparkles } from "lucide-react";
+import { ViewItemTracker } from "@/components/analytics/ViewItemTracker";
 import { IngredientShowcase } from "@/components/product/IngredientShowcase";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductGallery } from "@/components/product/ProductGallery";
@@ -22,7 +23,7 @@ import { cardSurface } from "@/components/ui/surface";
 import { faqsWithPayments } from "@/content/faqs";
 import { DELIVERY_FEE_LINE } from "@/content/seo-copy";
 import { RETURN_POLICY, SHIPPING_POLICY } from "@/content/policies";
-import { byShopOrder, cardPrice, productIngredients } from "@/lib/catalog";
+import { byShopOrder, cardPrice, defaultVariant, productIngredients } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 import { cssVars } from "@/lib/css-vars";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -180,6 +181,7 @@ export default async function ProductPage({ params }: Props) {
   return (
     <>
       <JsonLd data={structuredData} />
+      <ViewItemTracker item={{ id: product.id, name: product.name, price: defaultVariant(product).price }} />
       <PageBanner crumbs={crumbs} />
       <VariantProvider variants={product.variants}>
         <section className="product-hero relative isolate" style={cssVars({ "--tint": product.accent.glow })}>

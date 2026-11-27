@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Search, X } from "lucide-react";
+import { trackSearch } from "@/lib/analytics";
 import { searchProducts, type SearchItem } from "@/lib/menu";
 import { formatPrice } from "@/lib/money";
 
@@ -12,6 +13,13 @@ export function SearchDialog({ items, buttonClass }: { items: SearchItem[]; butt
   const [query, setQuery] = useState("");
   const results = searchProducts(items, query);
   const close = () => dialogRef.current?.close();
+
+  useEffect(() => {
+    const term = query.trim();
+    if (term.length < 3) return;
+    const timer = setTimeout(() => trackSearch(term), 1000);
+    return () => clearTimeout(timer);
+  }, [query]);
 
   return (
     <>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Banknote, MessageCircle } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useCart } from "@/components/cart/CartProvider";
@@ -16,6 +16,7 @@ import { SelectField, TextAreaField, TextField } from "@/components/ui/TextField
 import { TrustBar } from "@/components/ui/TrustBar";
 import { PaymentMethodPicker } from "./PaymentMethodPicker";
 import { cardSurface } from "@/components/ui/surface";
+import { trackBeginCheckout, trackPurchase } from "@/lib/analytics";
 import { cartSubtotal, pricedLines } from "@/lib/cart";
 import type { CatalogItem } from "@/lib/catalog";
 import {
@@ -95,6 +96,20 @@ function CheckoutForm({
     items.map(({ product, quantity }) => ({ variantId: product.id, quantity })),
     live,
   );
+  const tracked = items.map(({ product, quantity }) => ({
+    id: product.productId,
+    name: product.name,
+    price: product.salePrice,
+    variant: product.variantLabel,
+    quantity,
+  }));
+  const began = useRef(false);
+  useEffect(() => {
+    if (!ready || began.current || tracked.length === 0) return;
+    began.current = true;
+    trackBeginCheckout(tracked);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- fire once per checkout visit
+  }, [ready, tracked.length]);
   const problems = quote?.lines.filter((l) => !l.available || l.problem) ?? [];
   const blocked = live && quote !== null && !quote.canCheckout;
   const set =
@@ -133,6 +148,13 @@ function CheckoutForm({
         ...(chosen && { paymentMethodId: chosen.id }),
       });
       const done = { order, payLabel, phone: values.phone };
+      trackPurchase({
+        id: order.id,
+        items: tracked,
+        value: order.total ?? order.subtotal ?? subtotal,
+        shipping: order.shipping,
+        paymentType: payLabel,
+      });
       forgetCheckoutKey();
       clear();
       rememberPlaced(done);

@@ -80,7 +80,12 @@ export function SizeSelector({ className }: { className?: string }) {
 }
 
 export function SelectedAddToCartPanel({ item }: { item: Omit<CartItem, "variantId"> }) {
-  return <AddToCartPanel item={{ ...item, variantId: useSelection().selected.id }} />;
+  const { selected } = useSelection();
+  return (
+    <AddToCartPanel
+      item={{ ...item, variantId: selected.id, price: selected.price, variantLabel: selected.label }}
+    />
+  );
 }
 
 export function SelectedStickyBuyBar({
@@ -91,5 +96,11 @@ export function SelectedStickyBuyBar({
   watchId: string;
 }) {
   const { selected } = useSelection();
-  return <StickyBuyBar item={{ ...item, variantId: selected.id }} price={selected.price} watchId={watchId} />;
+  return (
+    <StickyBuyBar
+      item={{ ...item, variantId: selected.id, price: selected.price, variantLabel: selected.label }}
+      price={selected.price}
+      watchId={watchId}
+    />
+  );
 }

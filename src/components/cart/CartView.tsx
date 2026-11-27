@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { ArrowRight, Trash2 } from "lucide-react";
 import { QuantityStepper } from "@/components/product/QuantityStepper";
 import { ButtonLink } from "@/components/ui/Button";
 import { TrustBar } from "@/components/ui/TrustBar";
 import { cardSurface } from "@/components/ui/surface";
+import { trackViewCart } from "@/lib/analytics";
 import { cartSubtotal, pricedLines } from "@/lib/cart";
 import type { CatalogItem } from "@/lib/catalog";
 import { formatPrice } from "@/lib/money";
@@ -21,6 +23,21 @@ export function CartView({ catalogue, live = false }: { catalogue: CatalogItem[]
     items.map(({ product, quantity }) => ({ variantId: product.id, quantity })),
     live,
   );
+
+  const viewed = useRef(false);
+  useEffect(() => {
+    if (!ready || viewed.current || items.length === 0) return;
+    viewed.current = true;
+    trackViewCart(
+      items.map(({ product, quantity }) => ({
+        id: product.productId,
+        name: product.name,
+        price: product.salePrice,
+        variant: product.variantLabel,
+        quantity,
+      })),
+    );
+  }, [ready, items]);
 
   if (!ready) {
     return (

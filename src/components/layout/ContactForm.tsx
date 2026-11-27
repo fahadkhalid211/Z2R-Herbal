@@ -5,6 +5,7 @@ import { Send } from "lucide-react";
 import { buttonClasses } from "@/components/ui/Button";
 import { Notice } from "@/components/ui/Notice";
 import { TextAreaField, TextField } from "@/components/ui/TextField";
+import { trackLead } from "@/lib/analytics";
 import { customerApi, describeApiError, errorFields } from "@/lib/customer-api";
 import { contactSchema, fieldErrors } from "@/lib/validation";
 
@@ -32,6 +33,7 @@ export function ContactForm() {
     setPending(true);
     try {
       await customerApi.sendMessage({ ...parsed.data, company });
+      trackLead("contact");
       setSent(true);
       setValues(EMPTY);
     } catch (error) {
