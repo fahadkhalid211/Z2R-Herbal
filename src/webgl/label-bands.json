@@ -1,0 +1,40 @@
+{
+  "thetaMaxDeg": 70,
+  "products": {
+    "coconut": {
+      "top": 0.7562,
+      "bottom": 0.0482,
+      "texture": "/textures/labels/coconut.webp"
+    },
+    "almond": {
+      "top": 0.7591,
+      "bottom": 0.058,
+      "texture": "/textures/labels/almond.webp"
+    },
+    "pumpkin-seed": {
+      "top": 0.755,
+      "bottom": 0.0541,
+      "texture": "/textures/labels/pumpkin-seed.webp"
+    },
+    "signature": {
+      "top": 0.7499,
+      "bottom": 0.0521,
+      "texture": "/textures/labels/signature.webp"
+    },
+    "olive": {
+      "top": 0.7557,
+      "bottom": 0.0571,
+      "texture": "/textures/labels/olive.webp"
+    },
+    "mustard": {
+      "top": 0.7569,
+      "bottom": 0.0483,
+      "texture": "/textures/labels/mustard.webp"
+    },
+    "sesame": {
+      "top": 0.7355,
+      "bottom": 0.0602,
+      "texture": "/textures/labels/sesame.webp"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+#!/bin/sh
+url="$2"
+case "$url" in
+  *github.com[:/]Syed-M-Abdullah/*) exit 0 ;;
+esac
+echo "" >&2
+echo "Push blocked: this project is the private property of Syed M. Abdullah." >&2
+echo "It may only be pushed to the owner's own GitHub account (Syed-M-Abdullah)." >&2
+echo "See the LICENSE file. Unauthorised publishing is prohibited." >&2
+exit 1

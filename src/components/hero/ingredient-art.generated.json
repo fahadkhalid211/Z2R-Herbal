@@ -1,0 +1,30 @@
+{
+  "coconut": {
+    "width": 633,
+    "height": 302
+  },
+  "almond": {
+    "width": 531,
+    "height": 175
+  },
+  "pumpkin-seed": {
+    "width": 530,
+    "height": 259
+  },
+  "olive": {
+    "width": 532,
+    "height": 196
+  },
+  "mustard": {
+    "width": 578,
+    "height": 186
+  },
+  "sesame": {
+    "width": 551,
+    "height": 232
+  },
+  "rosemary": {
+    "width": 480,
+    "height": 581
+  }
+}

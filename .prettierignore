@@ -1,0 +1,19 @@
+.next/
+.next-export/
+out/
+coverage/
+playwright-report/
+test-results/
+.lighthouseci/
+assets/
+reference/
+public/
+package-lock.json
+PLAN.md
+
+# Tool settings and scratch files, not site code.
+.claude/
+scripts/.tmp/
+
+# Raw SEO audit data (crawl, Lighthouse, diff): generated, not formatted.
+seo-reports/data/

@@ -1,0 +1,44 @@
+# Z²R Herbal static site on Hostinger (LiteSpeed reads Apache .htaccess rules).
+# Copied into public_html by scripts/publish-hostinger.mjs.
+# HTTPS: turn on hPanel → Security → SSL → "Force HTTPS" once the certificate is active.
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  # Resized images are only generated below each original's width; larger requests get
+  # the original: /_img/1920/images/hero/stage.webp → /images/hero/stage.webp
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^_img/[0-9]+/(.+)$ $1 [L]
+  # Clean URLs for pages added later: /shop → shop.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+
+# The social preview image is generated without a file extension.
+<Files "opengraph-image">
+  ForceType image/png
+</Files>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Pages and the RSC payloads must update as soon as you re-publish.
+  <FilesMatch "\.(html|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(svg|png|webp|ico)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
